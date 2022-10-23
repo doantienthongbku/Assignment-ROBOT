@@ -16,7 +16,7 @@ Y = [0; 0; -a2*sin(Th_1)*sin(Th_2); sin(Th_1)*(a3*cos(Th_2) - a2*sin(Th_2)); sin
 Z = [0; d1;  d1 + a2*cos(Th_2); d1 + a2*cos(Th_2) + a3*sin(Th_2); d1 + a4*sin(Th_2 + Th_3) + a2*cos(Th_2) + a3*sin(Th_2); d1 + a4*sin(Th_2 + Th_3) + a2*cos(Th_2) + a3*sin(Th_2) + a5*sin(Th_2 + Th_3 + Th_4)];
 hold(handles.axes1,'on');
 grid(handles.axes1,'on');
-axis([-300, 300, -300, 300, 0, 600]);
+axis([-350, 350, -350, 350, 0, 600]);
 
 %------------base---------------%
 r = 100;

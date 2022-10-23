@@ -210,11 +210,6 @@ old_theta2 = theta2;
 old_theta3 = theta3;
 old_theta4 = theta4;
 
-set(handles.sli_theta1, 'value', theta1);
-set(handles.sli_theta2, 'value', theta2);
-set(handles.sli_theta3, 'value', theta3);
-set(handles.sli_theta4, 'value', theta4);
-
 
 % --- Executes during object creation, after setting all properties.
 function edt_X_CreateFcn(hObject, eventdata, handles)
