@@ -22,7 +22,7 @@ function varargout = Mainipulated(varargin)
 
 % Edit the above text to modify the response to help Mainipulated
 
-% Last Modified by GUIDE v2.5 16-Oct-2022 09:10:06
+% Last Modified by GUIDE v2.5 23-Oct-2022 16:52:05
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -87,7 +87,6 @@ function varargout = Mainipulated_OutputFcn(hObject, eventdata, handles)
 varargout{1} = handles.output;
 
 
-
 function edt_theta1_Callback(hObject, eventdata, handles)
 % hObject    handle to edt_theta1 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
@@ -98,7 +97,48 @@ function edt_theta1_Callback(hObject, eventdata, handles)
 theta1 = str2double(handles.edt_theta1.String);    
 if (theta1 <= -180)||(theta1 >= 180)
         msgbox('Goc Theta vuot qua gioi han. Xin nhap lai!');
+set(handles.sli_theta1, 'value', theta1);
 end
+
+function edt_theta2_Callback(hObject, eventdata, handles)
+% hObject    handle to edt_theta1 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of edt_theta1 as text
+%        str2double(get(hObject,'String')) returns contents of edt_theta1 as a double
+theta2 = str2double(handles.edt_theta2.String);    
+if (theta2 <= -180)||(theta2 >= 180)
+        msgbox('Goc Theta vuot qua gioi han. Xin nhap lai!');
+set(handles.sli_theta2, 'value', theta2);
+end
+
+function edt_theta3_Callback(hObject, eventdata, handles)
+% hObject    handle to edt_theta1 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of edt_theta1 as text
+%        str2double(get(hObject,'String')) returns contents of edt_theta1 as a double
+theta3 = str2double(handles.edt_theta3.String);    
+if (theta3 <= -180)||(theta3 >= 180)
+        msgbox('Goc Theta vuot qua gioi han. Xin nhap lai!');
+set(handles.sli_theta3, 'value', theta3);
+end
+
+function edt_theta4_Callback(hObject, eventdata, handles)
+% hObject    handle to edt_theta1 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of edt_theta1 as text
+%        str2double(get(hObject,'String')) returns contents of edt_theta1 as a double
+theta4 = str2double(handles.edt_theta4.String);    
+if (theta4 <= -180)||(theta4 >= 180)
+        msgbox('Goc Theta vuot qua gioi han. Xin nhap lai!');
+set(handles.sli_theta4, 'value', theta4);
+end
+
 
 % --- Executes during object creation, after setting all properties.
 function edt_theta1_CreateFcn(hObject, eventdata, handles)
@@ -111,16 +151,6 @@ function edt_theta1_CreateFcn(hObject, eventdata, handles)
 if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
     set(hObject,'BackgroundColor','white');
 end
-
-
-
-function edt_theta2_Callback(hObject, eventdata, handles)
-% hObject    handle to edt_theta2 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hints: get(hObject,'String') returns contents of edt_theta2 as text
-%        str2double(get(hObject,'String')) returns contents of edt_theta2 as a double
 
 
 % --- Executes during object creation, after setting all properties.
@@ -136,16 +166,6 @@ if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgr
 end
 
 
-
-function edt_theta3_Callback(hObject, eventdata, handles)
-% hObject    handle to edt_theta3 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hints: get(hObject,'String') returns contents of edt_theta3 as text
-%        str2double(get(hObject,'String')) returns contents of edt_theta3 as a double
-
-
 % --- Executes during object creation, after setting all properties.
 function edt_theta3_CreateFcn(hObject, eventdata, handles)
 % hObject    handle to edt_theta3 (see GCBO)
@@ -157,16 +177,6 @@ function edt_theta3_CreateFcn(hObject, eventdata, handles)
 if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
     set(hObject,'BackgroundColor','white');
 end
-
-
-
-function edt_theta4_Callback(hObject, eventdata, handles)
-% hObject    handle to edt_theta4 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hints: get(hObject,'String') returns contents of edt_theta4 as text
-%        str2double(get(hObject,'String')) returns contents of edt_theta4 as a double
 
 
 % --- Executes during object creation, after setting all properties.
@@ -200,18 +210,10 @@ old_theta2 = theta2;
 old_theta3 = theta3;
 old_theta4 = theta4;
 
-
-
-
-
-
-function edt_X_Callback(hObject, eventdata, handles)
-% hObject    handle to edt_X (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hints: get(hObject,'String') returns contents of edt_X as text
-%        str2double(get(hObject,'String')) returns contents of edt_X as a double
+set(handles.sli_theta1, 'value', theta1);
+set(handles.sli_theta2, 'value', theta2);
+set(handles.sli_theta3, 'value', theta3);
+set(handles.sli_theta4, 'value', theta4);
 
 
 % --- Executes during object creation, after setting all properties.
@@ -226,17 +228,6 @@ if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgr
     set(hObject,'BackgroundColor','white');
 end
 
-
-
-function edt_Y_Callback(hObject, eventdata, handles)
-% hObject    handle to edt_Y (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hints: get(hObject,'String') returns contents of edt_Y as text
-%        str2double(get(hObject,'String')) returns contents of edt_Y as a double
-
-
 % --- Executes during object creation, after setting all properties.
 function edt_Y_CreateFcn(hObject, eventdata, handles)
 % hObject    handle to edt_Y (see GCBO)
@@ -248,17 +239,6 @@ function edt_Y_CreateFcn(hObject, eventdata, handles)
 if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
     set(hObject,'BackgroundColor','white');
 end
-
-
-
-function edt_Z_Callback(hObject, eventdata, handles)
-% hObject    handle to edt_Z (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hints: get(hObject,'String') returns contents of edt_Z as text
-%        str2double(get(hObject,'String')) returns contents of edt_Z as a double
-
 
 % --- Executes during object creation, after setting all properties.
 function edt_Z_CreateFcn(hObject, eventdata, handles)
@@ -274,61 +254,6 @@ end
 
 
 % --- Executes on button press in Co_0.
-function Co_0_Callback(hObject, eventdata, handles)
-% hObject    handle to Co_0 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hint: get(hObject,'Value') returns toggle state of Co_0
-
-
-
-% --- Executes on button press in Co_1.
-function Co_1_Callback(hObject, eventdata, handles)
-% hObject    handle to Co_1 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hint: get(hObject,'Value') returns toggle state of Co_1
-
-
-% --- Executes on button press in Co_2.
-function Co_2_Callback(hObject, eventdata, handles)
-% hObject    handle to Co_2 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hint: get(hObject,'Value') returns toggle state of Co_2
-
-
-% --- Executes on button press in Co_3.
-function Co_3_Callback(hObject, eventdata, handles)
-% hObject    handle to Co_3 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hint: get(hObject,'Value') returns toggle state of Co_3
-
-
-% --- Executes on button press in Co_4.
-function Co_4_Callback(hObject, eventdata, handles)
-% hObject    handle to Co_4 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hint: get(hObject,'Value') returns toggle state of Co_4
-
-
-% --- Executes on button press in Co_5.
-function Co_5_Callback(hObject, eventdata, handles)
-% hObject    handle to Co_5 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hint: get(hObject,'Value') returns toggle state of Co_5
-
-
-% --- Executes on slider movement.
 function sli_theta1_Callback(hObject, eventdata, handles)
 % hObject    handle to sli_theta1 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
@@ -357,14 +282,6 @@ function sli_theta1_CreateFcn(hObject, eventdata, handles)
 if isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
     set(hObject,'BackgroundColor',[.9 .9 .9]);
 end
-
-
-% --------------------------------------------------------------------
-function Untitled_1_Callback(hObject, eventdata, handles)
-% hObject    handle to Untitled_1 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
 
 % --- Executes on slider movement.
 function sli_theta2_Callback(hObject, eventdata, handles)
@@ -453,15 +370,6 @@ if isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColo
     set(hObject,'BackgroundColor',[.9 .9 .9]);
 end
 
-
-
-function edt_Roll_Callback(hObject, eventdata, handles)
-% hObject    handle to edt_Roll (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hints: get(hObject,'String') returns contents of edt_Roll as text
-%        str2double(get(hObject,'String')) returns contents of edt_Roll as a double
 
 
 % --- Executes during object creation, after setting all properties.
@@ -612,3 +520,32 @@ createlink(theta1, theta2, theta3, theta4, handles);
 T_maxtrix(theta1, theta2, theta3, theta4);
 trig5 = get(handles.edt_Co_5,'Value');
 DrawCoordinate(A04, trig5,'X4', 'Y4', 'Z4');
+
+
+% --- Executes on button press in reset_button.
+function reset_button_Callback(hObject, eventdata, handles)
+% hObject    handle to reset_button (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+global theta1 theta2 theta3 theta4 old_theta1 old_theta2 old_theta3 old_theta4;
+
+theta1 = 0;
+theta2 = 0;
+theta3 = 0;
+theta4 = 0;
+
+moving(theta1, theta2, theta3, theta4, old_theta1, old_theta2, old_theta3, old_theta4, handles);
+old_theta1 = theta1;
+old_theta2 = theta2;
+old_theta3 = theta3;
+old_theta4 = theta4;
+
+set(handles.edt_theta1, 'string', num2str(theta1));
+set(handles.edt_theta2, 'string', num2str(theta2));
+set(handles.edt_theta3, 'string', num2str(theta3));
+set(handles.edt_theta4, 'string', num2str(theta4));
+
+set(handles.sli_theta1, 'value', theta1);
+set(handles.sli_theta2, 'value', theta2);
+set(handles.sli_theta3, 'value', theta3);
+set(handles.sli_theta4, 'value', theta4);

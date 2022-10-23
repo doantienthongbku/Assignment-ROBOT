@@ -16,16 +16,25 @@ Y = [0; 0; -a2*sin(Th_1)*sin(Th_2); sin(Th_1)*(a3*cos(Th_2) - a2*sin(Th_2)); sin
 Z = [0; d1;  d1 + a2*cos(Th_2); d1 + a2*cos(Th_2) + a3*sin(Th_2); d1 + a4*sin(Th_2 + Th_3) + a2*cos(Th_2) + a3*sin(Th_2); d1 + a4*sin(Th_2 + Th_3) + a2*cos(Th_2) + a3*sin(Th_2) + a5*sin(Th_2 + Th_3 + Th_4)];
 hold(handles.axes1,'on');
 grid(handles.axes1,'on');
-axis([-400, 400, -400, 400, 0, 800]);
+axis([-300, 300, -300, 300, 0, 600]);
 
 %------------base---------------%
-    %draw joint%
+r = 100;
+xc = 0;
+yc = 0;
+theta = linspace(0,2*pi);
+x_c = r*cos(theta) + xc;
+y_c = r*sin(theta) + yc;
+plot(x_c,y_c,'Parent',handles.axes1,'linewidth',1,'color','k');
+fill(x_c,y_c,'c');
+
+%draw joint%  
 P00 = [  1  0   0   0
          0  1   0   0
          0  0   1   25
          0  0   0   1];
-DrawBase(P00, 1, [1 1 0]);
-    %draw coordinate%
+DrawBase(P00, 1, [0 0 0]);
+%draw coordinate%
 A00 = [ 1 0 0 0
         0 1 0 0
         0 0 1 0
@@ -36,14 +45,14 @@ DrawCoordinate(A00, trig0, 'X0', 'Y0', 'Z0');
 %-------------link 1-----------------%
     %draw link%
 plot3(X(2,1),Y(2,1),Z(2,1),'ob','Parent',handles.axes1); 
-plot3([X(1,1) X(2,1)],[Y(1,1) Y(2,1)],[Z(1,1) Z(2,1)],'-k','Parent',handles.axes1,'linewidth',2);
+plot3([X(1,1) X(2,1)],[Y(1,1) Y(2,1)],[Z(1,1) Z(2,1)],'r','Parent',handles.axes1,'linewidth',8);
     %draw joint%
 P01 = [  cos(Th_1)  -sin(Th_1)   0   0
          sin(Th_1)   cos(Th_1)  0   0
          0  0   1   d1
          0  0   0   1];
      %draw joint%
-DrawLink(P01, 1, [1 1 0]);
+DrawLink(P01, 1, [0 1 0]);
      %draw coordinate%
 trig1 = get(handles.edt_Co_1,'Value');
 DrawCoordinate(A01, trig1,'X1', 'Y1', 'Z1');
@@ -53,7 +62,7 @@ DrawCoordinate(A01, trig1,'X1', 'Y1', 'Z1');
 %-----------link 2------------%
     %draw link%
 plot3(X(3,1),Y(3,1),Z(3,1),'ob','Parent',handles.axes1);
-plot3([X(2,1) X(3,1)],[Y(2,1) Y(3,1)],[Z(2,1) Z(3,1)],'-k','Parent',handles.axes1,'linewidth',2);
+plot3([X(2,1) X(3,1)],[Y(2,1) Y(3,1)],[Z(2,1) Z(3,1)],'g','Parent',handles.axes1,'linewidth',8);
     %draw coordinate%
 trig2 = get(handles.edt_Co_2,'Value');
 DrawCoordinate(A0a, trig2,'Xa','Ya','Za');
@@ -61,13 +70,13 @@ DrawCoordinate(A0a, trig2,'Xa','Ya','Za');
 %-------------link 3---------------%
     %draw link%
 plot3(X(3,1),Y(3,1),Z(3,1),'ob','Parent',handles.axes1);
-plot3([X(3,1) X(4,1)],[Y(3,1) Y(4,1)],[Z(3,1) Z(4,1)],'-k','Parent',handles.axes1,'linewidth',2);
+plot3([X(3,1) X(4,1)],[Y(3,1) Y(4,1)],[Z(3,1) Z(4,1)],'b','Parent',handles.axes1,'linewidth',8);
 P02 = [  cos(Th_1)  -sin(Th_1)   0   X(4,1)
          sin(Th_1)   cos(Th_1)  0   Y(4,1)
          0  0   1   Z(4,1)
          0  0   0   1];
     %draw joint%
-DrawLink(P02, 1, [1 1 0]);
+DrawLink(P02, 1, [0, 0 0]);
     %draw coordinate%
 trig3 = get(handles.edt_Co_3,'Value');
 DrawCoordinate(A02, trig3,'X2', 'Y2', 'Z2');
@@ -76,13 +85,13 @@ DrawCoordinate(A02, trig3,'X2', 'Y2', 'Z2');
 %------------link 4-------------%
     %draw link%
 plot3(X(4,1),Y(4,1),Z(4,1),'ob','Parent',handles.axes1);
-plot3([X(4,1) X(5,1)],[Y(4,1) Y(5,1)],[Z(4,1) Z(5,1)],'-k','Parent',handles.axes1,'linewidth',2);
+plot3([X(4,1) X(5,1)],[Y(4,1) Y(5,1)],[Z(4,1) Z(5,1)],'y','Parent',handles.axes1,'linewidth',8);
 P03 = [  cos(Th_1)  -sin(Th_1)   0   X(5,1)
          sin(Th_1)   cos(Th_1)  0   Y(5,1)
          0  0   1   Z(5,1)
          0  0   0   1];
     %draw joint%
-DrawLink(P03, 1, [1 1 0]);
+DrawLink(P03, 1, [0 0 0]);
     %draw coordinate%
 trig4 = get(handles.edt_Co_4,'Value');
 DrawCoordinate(A03, trig4,'X3', 'Y3', 'Z3');
@@ -90,7 +99,7 @@ DrawCoordinate(A03, trig4,'X3', 'Y3', 'Z3');
 %-------------link 5----------------%
     %draw link%
 plot3(X(5,1),Y(5,1),Z(5,1),'ob','Parent',handles.axes1);
-plot3([X(5,1) X(6,1)],[Y(5,1) Y(6,1)],[Z(5,1) Z(6,1)],'-k','Parent',handles.axes1,'linewidth',2);
+plot3([X(5,1) X(6,1)],[Y(5,1) Y(6,1)],[Z(5,1) Z(6,1)],'k','Parent',handles.axes1,'linewidth',8);
 
 P04a =    [cos(Th_1)  -sin(Th_1)   0   X(6,1)    %quay quanh Z goc Th_1
          sin(Th_1)   cos(Th_1)  0   Y(6,1)
@@ -102,7 +111,7 @@ P04 = P04b*[cos(-(Th_4+Th_3+Th_2))  0  sin(-(Th_4+Th_3+Th_2))   0         %quay 
          -sin(-(Th_4+Th_3+Th_2))  0  cos(-(Th_4+Th_3+Th_2))   0
          0           0      0       1];
     %draw End Effector%
-DrawGrip( P04, 1, [1 1 0] );
+DrawGrip( P04, 1, [0.5 0.5 0.5] );
 
     %draw coordinate%
 trig5 = get(handles.edt_Co_5,'Value');
